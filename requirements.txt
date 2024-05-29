@@ -1,2 +1,4 @@
 fastapi>=0.111.0,<0.113.0
 pydantic>=2.7.0,<3.0.0
+greenlet>=3.0.3
+sqlalchemy>=2.0
