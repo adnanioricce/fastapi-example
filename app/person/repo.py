@@ -1,3 +1,4 @@
+import random
 from sqlalchemy.orm import Session
 from . import models,schemas
 
@@ -5,7 +6,10 @@ def get_person(db: Session, person_id: int):
     return db.query(models.Person).filter(models.Person.BusinessEntityID == person_id).first()
 
 def create_person(db: Session, person: schemas.PersonCreate):
+    business_entity_id = random.randint(1, 1000000)
+    
     db_person = models.Person(**person.dict())
+    db_person.BusinessEntityID = business_entity_id
     db.add(db_person)
     db.commit()
     db.refresh(db_person)

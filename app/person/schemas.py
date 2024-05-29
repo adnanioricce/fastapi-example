@@ -2,6 +2,7 @@ from pydantic import BaseModel, UUID4
 from typing import Optional
 
 class PersonBase(BaseModel):
+    # BusinessEntityID: int = 0
     PersonType: str
     NameStyle: bool
     Title: Optional[str] = None
@@ -10,8 +11,8 @@ class PersonBase(BaseModel):
     LastName: str
     Suffix: Optional[str] = None
     EmailPromotion: int
-    AdditionalContactInfo: Optional[str] = None
-    Demographics: Optional[str] = None
+    # AdditionalContactInfo: Optional[str] = None
+    # Demographics: Optional[str] = None
 
 class PersonCreate(PersonBase):
     pass
