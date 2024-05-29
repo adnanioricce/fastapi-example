@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  db:
+    image: adnanioricce/adventureworks-pg:dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5433:5432'
+  app:
+    build: .
+    environment:
+      - SQLALCHEMY_DATABASE_URL=postgresql://postgres:postgres@db/Adventureworks
+    ports:
+      - "8001:80"
+    depends_on:
+      - db
+    
+    
+
+  
